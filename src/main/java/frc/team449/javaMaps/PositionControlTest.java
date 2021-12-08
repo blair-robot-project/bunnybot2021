@@ -197,11 +197,13 @@ public class PositionControlTest {
     // WE ASSUME THE ELEVATOR STARTS AT THE BOTTOM
     // PLEASE MAKE SURE ELEVATOR IS ACTUALLY AT THE BOTTOM
 
-    var elevator = new OneMotorPulleyElevator(
+    var elevator =
+        new OneMotorPulleyElevator(
             elevatorPulleyMotor,
             ElevatorPosition.BOTTOM,
-            new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), //TODO do characterization
-            new ProfiledPIDController(0.0, 0.0, 0.0, new TrapezoidProfile.Constraints())); //TODO PID tuning
+            new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
+            new ProfiledPIDController(
+                0.0, 0.0, 0.0, new TrapezoidProfile.Constraints())); // TODO PID tuning
     var setVelocityCommand = new SetVelocity(elevator, mechanismsJoystick, elevatorMaxVelocity);
 
     // intake

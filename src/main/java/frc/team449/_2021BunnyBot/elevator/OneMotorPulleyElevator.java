@@ -39,24 +39,26 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     return position;
   }
 
-  /** @return the {@link ProfiledPIDController} object or the pid controller used for this elevator */
-  public ProfiledPIDController getController(){
+  /**
+   * @return the {@link ProfiledPIDController} object or the pid controller used for this elevator
+   */
+  public ProfiledPIDController getController() {
     return pidController;
   }
 
   /** @return the position reading on the encoder */
-  public double getRawPosition(){
-   return pulleyMotor.getPosition();
+  public double getRawPosition() {
+    return pulleyMotor.getPosition();
   }
 
   /** set the voltage for the motor */
-  public void setRawOutput(double output){
+  public void setRawOutput(double output) {
     pulleyMotor.setVoltage(output);
   }
 
   /**
-   * @param pos the desired position to set the elevator
-   * no motion profiling involved, works with just PID control
+   * @param pos the desired position to set the elevator no motion profiling involved, works with
+   *     just PID control
    */
   public void moveToPosition(@NotNull ElevatorPosition pos) {
     pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
@@ -79,7 +81,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
 
   public enum ElevatorPosition {
     // preset positions (RPS)
-    //Each crate is 11 inches high (0.2794 meters)
+    // Each crate is 11 inches high (0.2794 meters)
     TOP(0.8382),
     UPPER(0.5588),
     LOWER(0.2794),
