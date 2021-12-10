@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import edu.wpi.first.wpilibj.controller.ElevatorFeedforward;
 import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.team449.jacksonWrappers.MappedSparkMax;
+import frc.team449.generalInterfaces.SmartMotor;
 import org.jetbrains.annotations.NotNull;
 
 public class OneMotorPulleyElevator extends SubsystemBase {
 
-  @NotNull private final MappedSparkMax pulleyMotor;
+  @NotNull private final SmartMotor pulleyMotor;
   @NotNull private ElevatorPosition position;
   @NotNull private final ElevatorFeedforward feedforward;
   @NotNull private final ProfiledPIDController pidController;

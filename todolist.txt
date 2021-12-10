@@ -28,12 +28,11 @@ src/main/java/frc/team449/javaMaps/PositionControlTest.java: 204: new ProfiledPI
 src/main/java/frc/team449/CommandContainer.java: 32: // TODO Figure out why this doesn't work @JsonInclude(JsonInclude.Include.NON_NULL)
 src/main/java/frc/team449/auto/commands/AutonomousCommand.java: 17: // TODO Make this a normal boolean. Making it nullable could cause a
 src/main/java/frc/team449/generalInterfaces/AHRS/commands/PIDAngleCommand.java: 21: extends CommandBase { // implements Loggable { TODO Logging causes the drive subsystem to be
-src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 46: int LOG_WIDTH = 4, LOG_HEIGHT = 3; // TODO Unused
-src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 677: double getError(); // TODO Unused
-src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 713: String getControlMode(); // TODO Unused
-src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 747: boolean getFwdLimitSwitch(); // TODO Unused
-src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 754: boolean getRevLimitSwitch(); // TODO Unused
-src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 802: default boolean isSimulated() { // TODO Unused
+src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 131: double getError(); // TODO Unused
+src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 167: String getControlMode(); // TODO Unused
+src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 201: boolean getFwdLimitSwitch(); // TODO Unused
+src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 208: boolean getRevLimitSwitch(); // TODO Unused
+src/main/java/frc/team449/generalInterfaces/SmartMotor.java: 256: default boolean isSimulated() { // TODO Unused
 src/main/java/frc/team449/_2020/multiSubsystem/commands/ConditionalPerpetualCommand.java: 44: // TODO This might be janky.
 src/main/java/frc/team449/_2020/multiSubsystem/commands/PerpetualCommandReinitializing.java: 28: // TODO: We should requireNonNull all @Nullable parameters because map errors can cause them to
 src/main/java/frc/team449/_2020/multiSubsystem/commands/PerpetualCommandReinitializing.java: 35: // TODO: How much less jank is this compared to ConditionalCommandDynamic?
@@ -55,5 +54,3 @@ src/main/java/frc/team449/components/AHRSRumbleComponent.java: 33: private final
 src/main/java/frc/team449/components/ShiftWithSensorComponent.java: 116: // TODO set up a lock system so no other part of the code can re-enable the motors.
 src/main/java/frc/team449/oi/unidirectional/arcade/OIArcade.java: 93: : (leftRightOutputCached = getLeftRightOutput()); // TODO assignment inside expression?
 src/main/java/frc/team449/oi/unidirectional/arcade/OIArcade.java: 106: : (fwdRotOutputCached = getFwdRotOutput()); // TODO assignment inside expression?
-src/main/java/frc/team449/jacksonWrappers/MappedSparkMax.java: 108: // todo determine if encoderCPR will ever be needed
-src/main/java/frc/team449/jacksonWrappers/MappedSparkMaxExternalEncoder.java: 125: // todo determine if encoderCPR will ever be needed
