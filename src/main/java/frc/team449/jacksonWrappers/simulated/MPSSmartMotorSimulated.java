@@ -499,7 +499,7 @@ public class MPSSmartMotorSimulated implements SmartMotor, Updatable {
    * @return True if the forwards limit switch is closed, false if it's open or doesn't exist.
    */
   @Override
-  public boolean getFwdLimitSwitch() {
+  public boolean isFwdLimitSwitch() {
     return false;
   }
 
@@ -509,7 +509,7 @@ public class MPSSmartMotorSimulated implements SmartMotor, Updatable {
    * @return True if the reverse limit switch is closed, false if it's open or doesn't exist.
    */
   @Override
-  public boolean getRevLimitSwitch() {
+  public boolean isRevLimitSwitch() {
     return false;
   }
 

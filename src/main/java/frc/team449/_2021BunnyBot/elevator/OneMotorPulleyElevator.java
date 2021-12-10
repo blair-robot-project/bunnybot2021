@@ -17,7 +17,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   /** @param pulleyMotor single motor used for the pulley */
   @JsonCreator
   public OneMotorPulleyElevator(
-      @NotNull MappedSparkMax pulleyMotor,
+      @NotNull SmartMotor pulleyMotor,
       @NotNull ElevatorPosition position,
       @NotNull ElevatorFeedforward feedforward,
       @NotNull ProfiledPIDController pidController) {
