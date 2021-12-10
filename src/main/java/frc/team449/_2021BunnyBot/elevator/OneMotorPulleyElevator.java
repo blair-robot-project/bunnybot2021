@@ -51,11 +51,6 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     return pulleyMotor.getPositionUnits();
   }
 
-  /** set the voltage for the motor */
-  public void setRawOutput(double output) {
-    pulleyMotor.setVoltage(output);
-  }
-
   /**
    * @param pos the desired position to set the elevator no motion profiling involved, works with
    *     just PID control
@@ -65,6 +60,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     System.out.println(calculated);
     pulleyMotor.setVelocity(calculated);
     System.out.println(pulleyMotor.getPositionUnits());
+    // TODO [IMPORTANT] We definitely don't need both of these, which do we keep?
     //    pulleyMotor.setPositionSetpoint(calculated);
     //    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
     // update position
