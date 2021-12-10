@@ -272,8 +272,4 @@ public interface SmartMotor extends SimpleMotor, Shiftable, Loggable {
       return friendlyName;
     }
   }
-
-  default double getPosition() {
-    return 0.0d; // TODO [IMPORTANT] Write this method
-  }
 }
