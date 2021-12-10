@@ -60,11 +60,8 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     System.out.println(calculated);
     pulleyMotor.setVelocity(calculated);
     System.out.println(pulleyMotor.getPositionUnits());
-    // TODO [IMPORTANT] We definitely don't need both of these, which do we keep?
-    //    pulleyMotor.setPositionSetpoint(calculated);
-    //    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
-    // update position
-    position = pos;
+    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
+    position = pos; // update position
   }
 
   /**
