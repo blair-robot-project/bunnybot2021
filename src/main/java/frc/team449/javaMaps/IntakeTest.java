@@ -43,7 +43,8 @@ public class IntakeTest {
     //  jacksonWrappers itself should be renamed, but that's an issue for another day
     var intake =
         new SolenoidSimple(
-            new DoubleSolenoid(1, INTAKE_SOLENOID_FORWARD_CHANNEL, INTAKE_SOLENOID_REVERSE_CHANNEL));
+            new DoubleSolenoid(
+                1, INTAKE_SOLENOID_FORWARD_CHANNEL, INTAKE_SOLENOID_REVERSE_CHANNEL));
     var compressor = new Compressor(1);
     compressor.start();
 
