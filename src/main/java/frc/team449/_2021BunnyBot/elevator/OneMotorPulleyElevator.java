@@ -4,13 +4,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import edu.wpi.first.wpilibj.controller.ElevatorFeedforward;
 import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.team449._2021BunnyBot.elevator.commands.MoveToPosition;
-import frc.team449.jacksonWrappers.MappedSparkMax;
+import frc.team449.generalInterfaces.SmartMotor;
 import org.jetbrains.annotations.NotNull;
 
 public class OneMotorPulleyElevator extends SubsystemBase {
 
-  @NotNull private final MappedSparkMax pulleyMotor;
+  @NotNull private final SmartMotor pulleyMotor;
   @NotNull private ElevatorPosition position;
   @NotNull private final ElevatorFeedforward feedforward;
   @NotNull private final ProfiledPIDController pidController;
@@ -18,7 +17,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   /** @param pulleyMotor single motor used for the pulley */
   @JsonCreator
   public OneMotorPulleyElevator(
-      @NotNull MappedSparkMax pulleyMotor,
+      @NotNull SmartMotor pulleyMotor,
       @NotNull ElevatorPosition position,
       @NotNull ElevatorFeedforward feedforward,
       @NotNull ProfiledPIDController pidController) {
@@ -49,7 +48,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
 
   /** @return the position reading on the encoder */
   public double getRawPosition() {
-    return pulleyMotor.getPosition();
+    return pulleyMotor.getPositionUnits();
   }
 
   /** set the voltage for the motor */
