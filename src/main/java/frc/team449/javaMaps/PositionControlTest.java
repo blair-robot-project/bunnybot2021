@@ -201,7 +201,10 @@ public class PositionControlTest {
             ElevatorPosition.BOTTOM,
             new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
             new ProfiledPIDController(
-                    1.0, 0, 0, new TrapezoidProfile.Constraints(elevatorMaxVelocity, 1))); // TODO PID tuning
+                1.0,
+                0,
+                0,
+                new TrapezoidProfile.Constraints(elevatorMaxVelocity, 1))); // TODO PID tuning
     var setVelocityCommand = new SetVelocity(elevator, mechanismsJoystick, elevatorMaxVelocity);
 
     // intake

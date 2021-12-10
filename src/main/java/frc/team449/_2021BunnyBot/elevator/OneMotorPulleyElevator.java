@@ -65,8 +65,8 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     System.out.println(calculated);
     pulleyMotor.setVelocity(calculated);
     System.out.println(pulleyMotor.getPositionUnits());
-//    pulleyMotor.setPositionSetpoint(calculated);
-//    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
+    //    pulleyMotor.setPositionSetpoint(calculated);
+    //    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
     // update position
     position = pos;
   }
