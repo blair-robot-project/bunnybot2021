@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import edu.wpi.first.wpilibj.controller.ElevatorFeedforward;
 import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.team449._2021BunnyBot.elevator.commands.MoveToPosition;
 import frc.team449.jacksonWrappers.MappedSparkMax;
 import org.jetbrains.annotations.NotNull;
 
@@ -61,9 +62,12 @@ public class OneMotorPulleyElevator extends SubsystemBase {
    *     just PID control
    */
   public void moveToPosition(@NotNull ElevatorPosition pos) {
-    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
-
-    System.out.println("Moving to " + pos + " position.");
+    var calculated = pidController.calculate(this.getRawPosition(), pos.distanceFromBottom);
+    System.out.println(calculated);
+    pulleyMotor.setVelocity(calculated);
+    System.out.println(pulleyMotor.getPositionUnits());
+//    pulleyMotor.setPositionSetpoint(calculated);
+//    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
     // update position
     position = pos;
   }

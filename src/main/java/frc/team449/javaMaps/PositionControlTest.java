@@ -76,7 +76,7 @@ public class PositionControlTest {
         intakeClose = 7,
         intakeOpen = 8;
     // Motor speeds
-    double elevatorMaxVelocity = 5; // TODO this is a placeholder
+    double elevatorMaxVelocity = .5; // TODO this is a placeholder
 
     var useCameraServer = false;
     var pdp = new PDP(0, new RunningLinRegComponent(250, 0.75));
@@ -180,7 +180,7 @@ public class PositionControlTest {
             null,
             null,
             null,
-            1.0 / 30.0,
+            1.0,
             1.0,
             40,
             false,
@@ -193,7 +193,7 @@ public class PositionControlTest {
     // PID constants for velocity controlled elevator motor
     //    elevatorPulleyMotor.setPID(0.0003, 0.0000008, 0.0146);
     // PID constants for position controlled elevator motor
-    elevatorPulleyMotor.setPID(.045, .00000095, 1);
+    elevatorPulleyMotor.setPID(0.5, 0, 0);
     // WE ASSUME THE ELEVATOR STARTS AT THE BOTTOM
     // PLEASE MAKE SURE ELEVATOR IS ACTUALLY AT THE BOTTOM
 
@@ -203,7 +203,7 @@ public class PositionControlTest {
             ElevatorPosition.BOTTOM,
             new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
             new ProfiledPIDController(
-                0.0, 0.0, 0.0, new TrapezoidProfile.Constraints())); // TODO PID tuning
+                    1.0, 0, 0, new TrapezoidProfile.Constraints(elevatorMaxVelocity, 1))); // TODO PID tuning
     var setVelocityCommand = new SetVelocity(elevator, mechanismsJoystick, elevatorMaxVelocity);
 
     // intake
