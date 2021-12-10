@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team449.CommandContainer;
 import frc.team449.RobotMap;
 import frc.team449._2020.multiSubsystem.SolenoidSimple;
+import frc.team449._2021BunnyBot.intake.OnePistonIntake;
 import frc.team449.components.RunningLinRegComponent;
 import frc.team449.jacksonWrappers.MappedJoystick;
 import frc.team449.jacksonWrappers.PDP;
@@ -20,7 +21,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class IntakeTest {
   // Solenoid ports
-  private static final int INTAKE_SOLENOID_FORWARD_CHANNEL = 2, INTAKE_SOLENOID_REVERSE_CHANNEL = 4;
+  // todo check these channels
+  private static final int INTAKE_SOLENOID_FORWARD_CHANNEL = 0, INTAKE_SOLENOID_REVERSE_CHANNEL = 1;
 
   // Joystick ports
   private static final int MECHANISMS_JOYSTICK_PORT = 0;
@@ -42,9 +44,11 @@ public class IntakeTest {
     // _2020 package
     //  jacksonWrappers itself should be renamed, but that's an issue for another day
     var intake =
-        new SolenoidSimple(
-            new DoubleSolenoid(1, INTAKE_SOLENOID_FORWARD_CHANNEL, INTAKE_SOLENOID_REVERSE_CHANNEL));
-    var compressor = new Compressor(1);
+        new OnePistonIntake(
+            new SolenoidSimple(
+                new DoubleSolenoid(
+                    INTAKE_SOLENOID_FORWARD_CHANNEL, INTAKE_SOLENOID_REVERSE_CHANNEL)));
+    var compressor = new Compressor(0);
     compressor.start();
 
     var subsystems = List.<Subsystem>of(intake);
@@ -58,7 +62,7 @@ public class IntakeTest {
                 new InstantCommand(
                     () -> {
                       System.out.println("Opening intake");
-                      intake.setSolenoid(DoubleSolenoid.Value.kForward);
+                      intake.open();
                     }),
                 CommandButton.Action.WHEN_PRESSED),
             // Close intake
@@ -67,7 +71,7 @@ public class IntakeTest {
                 new InstantCommand(
                     () -> {
                       System.out.println("Closing intake");
-                      intake.setSolenoid(DoubleSolenoid.Value.kReverse);
+                      intake.close();
                     }),
                 CommandButton.Action.WHEN_PRESSED));
 
