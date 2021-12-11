@@ -64,8 +64,8 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   public void moveToPosition(@NotNull ElevatorPosition pos, double kDt) {
     goal = new TrapezoidProfile.State(pos.distanceFromBottom, 0);
     while (position.distanceFromBottom != goal.position) {
-        setpoint = calculateNextPosition(kDt);
-        pulleyMotor.setPositionSetpoint(setpoint.position);
+      setpoint = calculateNextPosition(kDt);
+      pulleyMotor.setPositionSetpoint(setpoint.position);
     }
   }
 
@@ -95,6 +95,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
       this.distanceFromBottom = distanceFromBottom;
     }
   }
+
   public TrapezoidProfile.State calculateNextPosition(double kDt) {
     TrapezoidProfile profile = new TrapezoidProfile(constraints, goal, setpoint);
     return profile.calculate(kDt);
