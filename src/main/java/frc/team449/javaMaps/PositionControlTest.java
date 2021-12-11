@@ -2,7 +2,6 @@ package frc.team449.javaMaps;
 
 import edu.wpi.first.wpilibj.controller.ElevatorFeedforward;
 import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -24,10 +23,8 @@ import frc.team449.oi.buttons.CommandButton;
 import frc.team449.oi.buttons.SimpleButton;
 import frc.team449.other.DefaultCommand;
 import frc.team449.other.Updater;
-import io.github.oblarg.oblog.annotations.Config;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 public class PositionControlTest {
   // Drive system
@@ -303,7 +300,7 @@ public class PositionControlTest {
             autoStartupCommands,
             teleopStartupCommands,
             testStartupCommands);
-    //Shuffleboard buttons
+    // Shuffleboard buttons
     SmartDashboard.putData("Move to Top", new MoveToPosition(ElevatorPosition.TOP, elevator));
     SmartDashboard.putData("Move to Upper", new MoveToPosition(ElevatorPosition.UPPER, elevator));
     SmartDashboard.putData("Move to Lower", new MoveToPosition(ElevatorPosition.LOWER, elevator));
