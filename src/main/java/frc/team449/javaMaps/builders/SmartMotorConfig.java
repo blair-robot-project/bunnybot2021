@@ -28,7 +28,7 @@ public class SmartMotorConfig {
   private boolean reverseOutput;
   private @Nullable PDP
       pdp; // TODO [IMPORTANT] Find a way to make this @NotNull. Current band-aid fix (@Nullable) is
-           // terrible.
+  // terrible.
   private @Nullable Boolean fwdLimitSwitchNormallyOpen;
   private @Nullable Boolean revLimitSwitchNormallyOpen;
   private @Nullable Integer remoteLimitSwitchID;
