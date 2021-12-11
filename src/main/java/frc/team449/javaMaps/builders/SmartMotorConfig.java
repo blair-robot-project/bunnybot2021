@@ -253,7 +253,7 @@ public class SmartMotorConfig {
   }
 
   /** Ensure that all required fields of this {@link SmartMotorConfig} have been initialized */
-  public SmartMotorConfig ensureBuilt() { //TODO We probably don't need this
+  public SmartMotorConfig ensureBuilt() { // TODO We probably don't need this
     assert pdp != null : "PDP was null when constructing motor " + name;
     return this;
   }
