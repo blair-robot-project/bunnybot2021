@@ -58,8 +58,11 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   }
 
   /**
-   * @param pos the desired position to set the elevator no motion profiling involved, works with
-   *     just PID control
+   * Uses motion profiling via {@link OneMotorPulleyElevator#calculateNextPosition(double) calculateNextPosition} to move the elevator
+   *
+   * @author Katie Del Toro
+   * @param pos the desired position to set the elevator to
+   * @param kDt the time since the profile started
    */
   public void moveToPosition(@NotNull ElevatorPosition pos, double kDt) {
     goal = new TrapezoidProfile.State(pos.distanceFromBottom, 0);
@@ -93,7 +96,13 @@ public class OneMotorPulleyElevator extends SubsystemBase {
       this.distanceFromBottom = distanceFromBottom;
     }
   }
-
+  /**
+  * Uses motion profiling magic to calculate the next interpolated setpoint between the current position and the goal.
+  *
+  * @author Katie Del Toro
+  * @param kDt the time since the profile was started
+  * @return a new {@linkplain TrapezoidProfile.State profile state}
+  */
   public TrapezoidProfile.State calculateNextPosition(double kDt) {
     TrapezoidProfile profile = new TrapezoidProfile(constraints, goal, setpoint);
     return profile.calculate(kDt);
