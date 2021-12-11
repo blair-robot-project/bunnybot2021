@@ -303,7 +303,6 @@ public class Bunnybot2021Map {
                 new SimpleButton(mechanismsJoystick, INTAKE_OPEN),
                 new SetIntake(OnePistonIntake.IntakePosition.OPEN, intake),
                 CommandButton.Action.WHEN_PRESSED));
-
     var robotStartupCommands = List.<Command>of();
     var autoStartupCommands = List.<Command>of();
     var teleopStartupCommands = List.<Command>of();
