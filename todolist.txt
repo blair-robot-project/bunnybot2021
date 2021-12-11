@@ -1,4 +1,6 @@
 Important TODOs:
+./src/main/java/frc/team449/javaMaps/builders/SmartMotorConfig.java: 30: pdp; // TODO [IMPORTANT] Find a way to make this @NotNull. Current band-aid fix (@Nullable) is
+./src/main/java/frc/team449/javaMaps/builders/SmartMotorConfig.java: 258: public SmartMotorConfig ensureBuilt() { // TODO [IMPORTANT] We should remove this
 ---------------------------------------------------------------------------------------------------------
 Non-important TODOs:
 ./src/main/java/frc/team449/CommandContainer.java: 32: // TODO Figure out why this doesn't work @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -44,6 +46,5 @@ Non-important TODOs:
 ./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 80: double elevatorMaxVelocity = .5; // TODO this is a placeholder
 ./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 202: new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
 ./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 207: new TrapezoidProfile.Constraints(elevatorMaxVelocity, 1))); // TODO PID tuning
-./src/main/java/frc/team449/javaMaps/builders/SmartMotorConfig.java: 256: public SmartMotorConfig ensureBuilt() { // TODO We probably don't need this
 ./src/main/java/frc/team449/oi/unidirectional/arcade/OIArcade.java: 93: : (leftRightOutputCached = getLeftRightOutput()); // TODO assignment inside expression?
 ./src/main/java/frc/team449/oi/unidirectional/arcade/OIArcade.java: 106: : (fwdRotOutputCached = getFwdRotOutput()); // TODO assignment inside expression?
