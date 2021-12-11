@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.revrobotics.*;
-import frc.team449.generalInterfaces.MotorContainer;
 import frc.team449.generalInterfaces.SmartMotor;
 import frc.team449.jacksonWrappers.simulated.MPSSmartMotorSimulated;
 import frc.team449.javaMaps.builders.SmartMotorConfig;
 import io.github.oblarg.oblog.annotations.Log;
-import java.util.Map;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.StringIdGenerator.class)
 public class MappedSparkMax extends MappedSparkMaxBase implements SmartMotor {
@@ -37,7 +37,6 @@ public class MappedSparkMax extends MappedSparkMaxBase implements SmartMotor {
     this.canEncoder = this.spark.getEncoder();
     this.pidController = this.spark.getPIDController();
     this.resetPosition();
-    MotorContainer.register(this);
   }
 
   /**

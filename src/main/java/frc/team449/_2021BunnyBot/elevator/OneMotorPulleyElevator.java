@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.controller.ElevatorFeedforward;
 import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.team449.generalInterfaces.SmartMotor;
+import io.github.oblarg.oblog.annotations.Log;
 import org.jetbrains.annotations.NotNull;
 
 public class OneMotorPulleyElevator extends SubsystemBase {
@@ -46,6 +47,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     return pidController;
   }
 
+  @Log
   /** @return the position reading on the encoder */
   public double getRawPosition() {
     return pulleyMotor.getPositionUnits();
@@ -57,10 +59,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
    */
   public void moveToPosition(@NotNull ElevatorPosition pos) {
     var calculated = pidController.calculate(this.getRawPosition(), pos.distanceFromBottom);
-    System.out.println(calculated);
     pulleyMotor.setVelocity(calculated);
-    System.out.println(pulleyMotor.getPositionUnits());
-    pulleyMotor.setPositionSetpoint(pos.distanceFromBottom);
     position = pos; // update position
   }
 
