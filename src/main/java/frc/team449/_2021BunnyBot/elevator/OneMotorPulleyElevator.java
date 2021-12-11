@@ -58,7 +58,8 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   }
 
   /**
-   * Uses motion profiling via {@link OneMotorPulleyElevator#calculateNextPosition(double) calculateNextPosition} to move the elevator
+   * Uses motion profiling via {@link OneMotorPulleyElevator#calculateNextPosition(double)
+   * calculateNextPosition} to move the elevator
    *
    * @author Katie Del Toro
    * @param pos the desired position to set the elevator to
@@ -97,12 +98,13 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     }
   }
   /**
-  * Uses motion profiling magic to calculate the next interpolated setpoint between the current position and the goal.
-  *
-  * @author Katie Del Toro
-  * @param kDt the time since the profile was started
-  * @return a new {@linkplain TrapezoidProfile.State profile state}
-  */
+   * Uses motion profiling magic to calculate the next interpolated setpoint between the current
+   * position and the goal.
+   *
+   * @author Katie Del Toro
+   * @param kDt the time since the profile was started
+   * @return a new {@linkplain TrapezoidProfile.State profile state}
+   */
   public TrapezoidProfile.State calculateNextPosition(double kDt) {
     TrapezoidProfile profile = new TrapezoidProfile(constraints, goal, setpoint);
     return profile.calculate(kDt);
