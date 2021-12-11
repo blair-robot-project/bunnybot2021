@@ -2,14 +2,9 @@ package frc.team449.javaMaps;
 
 import edu.wpi.first.wpilibj.controller.ElevatorFeedforward;
 import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
-import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team449.CommandContainer;
 import frc.team449.RobotMap;
@@ -28,9 +23,8 @@ import frc.team449.oi.buttons.CommandButton;
 import frc.team449.oi.buttons.SimpleButton;
 import frc.team449.other.DefaultCommand;
 import frc.team449.other.Updater;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 public class PositionControlTest {
   // Drive system
@@ -311,15 +305,16 @@ public class PositionControlTest {
     SmartDashboard.putData("Move to Upper", new MoveToPosition(ElevatorPosition.UPPER, elevator));
     SmartDashboard.putData("Move to Lower", new MoveToPosition(ElevatorPosition.LOWER, elevator));
     SmartDashboard.putData("Move to Bottom", new MoveToPosition(ElevatorPosition.BOTTOM, elevator));
-//    SendableChooser<ElevatorPosition> selector = new SendableChooser<>(); TODO If I could get this to work it would be much nicer than the above method.
-//    selector.setDefaultOption("Bottom", ElevatorPosition.BOTTOM);
-//    selector.addOption("Lower", ElevatorPosition.LOWER);
-//    selector.addOption("Upper", ElevatorPosition.UPPER);
-//    selector.addOption("Top", ElevatorPosition.TOP);
-//    ShuffleboardTab elevatorControl = Shuffleboard.getTab("Elevator Control");
-//    elevatorControl.add(selector).withWidget(BuiltInWidgets.kSplitButtonChooser);
-//    MoveToPosition runner = new MoveToPosition(selector.getSelected(), elevator);
-//    elevatorControl.add(runner).withWidget(BuiltInWidgets.kCommand);
+    //    SendableChooser<ElevatorPosition> selector = new SendableChooser<>(); TODO If I could get
+    // this to work it would be much nicer than the above method.
+    //    selector.setDefaultOption("Bottom", ElevatorPosition.BOTTOM);
+    //    selector.addOption("Lower", ElevatorPosition.LOWER);
+    //    selector.addOption("Upper", ElevatorPosition.UPPER);
+    //    selector.addOption("Top", ElevatorPosition.TOP);
+    //    ShuffleboardTab elevatorControl = Shuffleboard.getTab("Elevator Control");
+    //    elevatorControl.add(selector).withWidget(BuiltInWidgets.kSplitButtonChooser);
+    //    MoveToPosition runner = new MoveToPosition(selector.getSelected(), elevator);
+    //    elevatorControl.add(runner).withWidget(BuiltInWidgets.kCommand);
     return new RobotMap(subsystems, pdp, updater, allCommands, joysticks, useCameraServer);
   }
 }
