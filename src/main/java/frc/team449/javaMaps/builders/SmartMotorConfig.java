@@ -24,9 +24,9 @@ public class SmartMotorConfig {
   private SmartMotor.Type type;
   private int port;
   private boolean enableBrakeMode;
-  private @Nullable String name;
+  private @Nullable String name; //See line 29
   private boolean reverseOutput;
-  private @Nullable PDP pdp;
+  private @Nullable PDP pdp; // TODO [IMPORTANT] Find a way to make this @NotNull. Current band-aid fix (@Nullable) is terrible.
   private @Nullable Boolean fwdLimitSwitchNormallyOpen;
   private @Nullable Boolean revLimitSwitchNormallyOpen;
   private @Nullable Integer remoteLimitSwitchID;
@@ -253,7 +253,7 @@ public class SmartMotorConfig {
   }
 
   /** Ensure that all required fields of this {@link SmartMotorConfig} have been initialized */
-  public SmartMotorConfig ensureBuilt() { // TODO We probably don't need this
+  public SmartMotorConfig ensureBuilt() { // TODO [IMPORTANT] We should remove this
     assert pdp != null : "PDP was null when constructing motor " + name;
     return this;
   }
