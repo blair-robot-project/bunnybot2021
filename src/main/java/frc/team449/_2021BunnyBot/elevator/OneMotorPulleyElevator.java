@@ -93,6 +93,7 @@ public class OneMotorPulleyElevator extends SubsystemBase {
       this.distanceFromBottom = distanceFromBottom;
     }
   }
+
   public TrapezoidProfile.State calculateNextPosition(double kDt) {
     TrapezoidProfile profile = new TrapezoidProfile(constraints, goal, setpoint);
     return profile.calculate(kDt);

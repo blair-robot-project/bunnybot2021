@@ -209,7 +209,8 @@ public class PositionControlTest {
                 0.0,
                 0.0,
                 new TrapezoidProfile.Constraints(elevatorMaxVelocity, 1)), // TODO PID tuning
-            new TrapezoidProfile.Constraints(elevatorMaxVelocity, 1)); //TODO [IMPORTANT] These values are placeholders
+            new TrapezoidProfile.Constraints(
+                elevatorMaxVelocity, 1)); // TODO [IMPORTANT] These values are placeholders
     var setVelocityCommand = new SetVelocity(elevator, mechanismsJoystick, elevatorMaxVelocity);
 
     // intake
