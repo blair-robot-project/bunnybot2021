@@ -195,8 +195,6 @@ public class Bunnybot2021Map {
             elevatorPulleyMotor,
             OneMotorPulleyElevator.ElevatorPosition.BOTTOM,
             new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
-            new ProfiledPIDController(
-                0.0, 0.0, 0.0, new TrapezoidProfile.Constraints()), // TODO PID tuning
             new TrapezoidProfile.Constraints(
                 1, 1)); // TODO [IMPORTANT] These values are placeholders
 
