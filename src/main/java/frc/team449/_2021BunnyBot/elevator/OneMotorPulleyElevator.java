@@ -41,7 +41,6 @@ public class OneMotorPulleyElevator extends SubsystemBase {
     return position;
   }
 
-
   /** @return the position reading on the encoder */
   public double getRawPosition() {
     return pulleyMotor.getPositionUnits();
