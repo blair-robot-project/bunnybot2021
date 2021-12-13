@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 public class MoveToPosition extends CommandBase {
   private final OneMotorPulleyElevator.ElevatorPosition position;
   private final OneMotorPulleyElevator elevator;
-  private final double startTime = System.currentTimeMillis();
+  private double startTime;
 
   public MoveToPosition(
       @NotNull OneMotorPulleyElevator.ElevatorPosition position,
@@ -16,17 +16,31 @@ public class MoveToPosition extends CommandBase {
     this.elevator = elevator;
     this.position = position;
   }
-
+  // runs when the command starts
+  @Override
+  public void initialize() {
+    System.out.println("[INITIALIZING] Moving to " + position + " position.");
+    startTime = System.currentTimeMillis();
+  }
   /** Moves to designated position for command */
   @Override
   public void execute() {
-    System.out.println("Moving to " + position + " position.");
     elevator.moveToPosition(position, System.currentTimeMillis() - startTime);
+  }
+
+  /** Prints to the console if it was interrupted or successfully moved to position */
+  @Override
+  public void end(boolean interrupted) {
+    if (!interrupted) {
+      System.out.println("[SUCCESSFUL] Moved to " + position + " position.");
+    } else {
+      System.out.println("[UNSUCCESSFUL] Attempted to move to " + position + " position.");
+    }
   }
   /** Some tolerance, stops if elevator is within .01 meters of the setpoint */
   @Override
   public boolean isFinished() {
-    return Math.abs(elevator.getPosition().distanceFromBottom - position.distanceFromBottom)
+    return Math.abs(elevator.getRawPosition() - position.distanceFromBottom)
         < 0.01; // 1 centimetre threshold
   }
 }

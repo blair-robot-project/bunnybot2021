@@ -2,7 +2,6 @@ package frc.team449._2021BunnyBot.elevator;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import edu.wpi.first.wpilibj.controller.ElevatorFeedforward;
-import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
 import edu.wpi.first.wpilibj.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.team449.generalInterfaces.SmartMotor;
@@ -13,7 +12,6 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   @NotNull private final SmartMotor pulleyMotor;
   @NotNull private ElevatorPosition position;
   @NotNull private final ElevatorFeedforward feedforward;
-  @NotNull private final ProfiledPIDController pidController;
   @NotNull private final TrapezoidProfile.Constraints constraints;
   @NotNull private TrapezoidProfile.State goal = new TrapezoidProfile.State();
   @NotNull private TrapezoidProfile.State setpoint = new TrapezoidProfile.State();
@@ -24,12 +22,10 @@ public class OneMotorPulleyElevator extends SubsystemBase {
       @NotNull SmartMotor pulleyMotor,
       @NotNull ElevatorPosition position,
       @NotNull ElevatorFeedforward feedforward,
-      @NotNull ProfiledPIDController pidController,
       @NotNull TrapezoidProfile.Constraints constraints) {
     this.pulleyMotor = pulleyMotor;
     this.position = position;
     this.feedforward = feedforward;
-    this.pidController = pidController;
     this.pulleyMotor.resetPosition();
     this.constraints = constraints;
   }
@@ -43,13 +39,6 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   @NotNull
   public ElevatorPosition getPosition() {
     return position;
-  }
-
-  /**
-   * @return the {@link ProfiledPIDController} object or the pid controller used for this elevator
-   */
-  public ProfiledPIDController getController() {
-    return pidController;
   }
 
   /** @return the position reading on the encoder */
