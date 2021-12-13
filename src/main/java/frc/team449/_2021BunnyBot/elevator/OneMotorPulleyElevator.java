@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 public class OneMotorPulleyElevator extends SubsystemBase {
 
   @NotNull private final SmartMotor pulleyMotor;
-  @NotNull private ElevatorPosition position;
+  @NotNull private final ElevatorPosition position;
   @NotNull private final ElevatorFeedforward feedforward;
   @NotNull private final TrapezoidProfile.Constraints constraints;
   @NotNull private TrapezoidProfile.State goal = new TrapezoidProfile.State();
@@ -74,9 +74,9 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   public enum ElevatorPosition {
     // preset positions (RPS)
     // Each crate is 11 inches high (0.2794 meters)
-    TOP(0.8382),
-    UPPER(0.5588),
-    LOWER(0.2794),
+    TOP(0.8382*10),
+    UPPER(0.5588*10),
+    LOWER(0.2794*10),
     BOTTOM(0.0);
 
     /** The distance of this position from the bottom in meters */

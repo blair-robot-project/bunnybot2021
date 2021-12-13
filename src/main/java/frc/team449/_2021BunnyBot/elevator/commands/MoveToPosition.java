@@ -41,6 +41,6 @@ public class MoveToPosition extends CommandBase {
   @Override
   public boolean isFinished() {
     return Math.abs(elevator.getRawPosition() - position.distanceFromBottom)
-        < 0.01; // 1 centimetre threshold
+        < 0.0075; // 1 centimetre threshold
   }
 }

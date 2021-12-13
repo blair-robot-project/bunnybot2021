@@ -22,8 +22,9 @@ import frc.team449.oi.buttons.CommandButton;
 import frc.team449.oi.buttons.SimpleButton;
 import frc.team449.other.DefaultCommand;
 import frc.team449.other.Updater;
-import java.util.List;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class PositionControlTest {
   // Drive system
@@ -77,7 +78,7 @@ public class PositionControlTest {
         intakeClose = 7,
         intakeOpen = 8;
     // Motor speeds
-    double elevatorMaxVelocity = .5; // TODO this is a placeholder
+    double elevatorMaxVelocity = .05; // TODO this is a placeholder
 
     var useCameraServer = false;
     var pdp = new PDP(0, new RunningLinRegComponent(250, 0.75));
@@ -85,89 +86,6 @@ public class PositionControlTest {
     var mechanismsJoystick = new MappedJoystick(mechanismsJoystickPort);
     //        var driveJoystick = new MappedJoystick(driveJoystickPort);
     var joysticks = List.of(mechanismsJoystick /*, driveJoystick*/);
-    //
-    //        var navx = new MappedAHRS(SerialPort.Port.kMXP, true);
-    //        var driveMasterPrototype =
-    //                new SmartMotorConfigObject()
-    //                        .setType(SmartMotor.Type.SPARK)
-    //                        .setEnableBrakeMode(true)
-    //                        .setPdp(pdp)
-    //                        .setUnitPerRotation(0.47877872)
-    //                        .setCurrentLimit(50)
-    //                        .setEnableVoltageComp(true)
-    //                        .setStartingGear(Shiftable.Gear.LOW)
-    //                        .setEncoderCPR(256);
-    //        var lowGear =
-    //                new PerGearSettingsBuilder()
-    //                        .gear(Shiftable.Gear.LOW)
-    //                        .postEncoderGearing(0.0488998)
-    //                        .maxSpeed(2.3)
-    //                        .kP(0);
-    //        var highGear =
-    //                new PerGearSettingsBuilder()
-    //                        .gear(Shiftable.Gear.HIGH)
-    //                        .postEncoderGearing(0.12936611)
-    //                        .maxSpeed(5.2)
-    //                        .kP(0.000001);
-    //
-    //        var leftMaster =
-    //                SmartMotor.create(
-    //                        driveMasterPrototype
-    //                                .setPort(leftMasterPort)
-    //                                .setName("left")
-    //                                .setReverseOutput(true)
-    //                                .setSlaveSparks(
-    //                                        List.of(
-    //                                                new SlaveSparkMax(leftMasterSlave1Port, false,
-    // pdp),
-    //                                                new SlaveSparkMax(leftMasterSlave2Port, false,
-    // pdp)))
-    //                                .setPerGearSettings(
-    //                                        List.of(
-    //                                                lowGear
-    //                                                        .feedForwardCalculator(
-    //                                                                new
-    // MappedFeedForwardCalculator(0.128, 5.23, 0.0698))
-    //                                                        .build(),
-    //                                                highGear
-    //                                                        .feedForwardCalculator(
-    //                                                                new
-    // MappedFeedForwardCalculator(0.156, 2.01, 0.154))
-    //                                                        .build())));
-    //        var rightMaster =
-    //                SmartMotor.create(
-    //                        driveMasterPrototype
-    //                                .setName("right")
-    //                                .setPort(rightMasterPort)
-    //                                .setReverseOutput(false)
-    //                                .setSlaveSparks(
-    //                                        List.of(
-    //                                                new SlaveSparkMax(rightMasterSlave1Port,
-    // false, pdp),
-    //                                                new SlaveSparkMax(rightMasterSlave2Port,
-    // false, pdp)))
-    //                                .setPerGearSettings(
-    //                                        List.of(
-    //                                                lowGear
-    //                                                        .feedForwardCalculator(
-    //                                                                new
-    // MappedFeedForwardCalculator(0.139, 5.17, 0.0554))
-    //                                                        .build(),
-    //                                                highGear
-    //                                                        .feedForwardCalculator(
-    //                                                                new
-    // MappedFeedForwardCalculator(0.165, 2.01, 0.155))
-    //                                                        .build())));
-    /*var drive =
-        new DriveUnidirectionalWithGyroShiftable(
-                leftMaster,
-                rightMaster,
-                navx,
-                0.61755,
-                new ShiftComponent(
-                        List.of(leftMaster, rightMaster), new DoubleSolenoid(0, 0, 1), Shiftable.Gear.LOW),
-                false);
-    */
     // Elevator
     var elevatorPulleyMotor =
         MappedSparkMax.create(
@@ -191,7 +109,8 @@ public class PositionControlTest {
     // PID constants for velocity controlled elevator motor
     //    elevatorPulleyMotor.setPID(0.0003, 0.0000008, 0.0146);
     // PID constants for position controlled elevator motor
-    elevatorPulleyMotor.setPID(0.5, 0, 0);
+//    elevatorPulleyMotor.setPID(0.2, 0.0008, 0.016);
+      elevatorPulleyMotor.setPID(0.0, 0, 0.0);
     // WE ASSUME THE ELEVATOR STARTS AT THE BOTTOM
     // PLEASE MAKE SURE ELEVATOR IS ACTUALLY AT THE BOTTOM
 
@@ -201,7 +120,7 @@ public class PositionControlTest {
             ElevatorPosition.BOTTOM,
             new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
             new TrapezoidProfile.Constraints(
-                elevatorMaxVelocity, 1)); // TODO [IMPORTANT] These values are placeholders
+                elevatorMaxVelocity, 0.3)); // TODO [IMPORTANT] These values are placeholders
     var setVelocityCommand = new SetVelocity(elevator, mechanismsJoystick, elevatorMaxVelocity);
 
     // intake
