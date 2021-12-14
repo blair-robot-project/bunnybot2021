@@ -2,6 +2,7 @@ package frc.team449.javaMaps;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.Subsystem;
@@ -44,14 +45,12 @@ public class IntakeTest {
     // _2020 package
     //  jacksonWrappers itself should be renamed, but that's an issue for another day
     var intake =
-        new OnePistonIntake(
-            new SolenoidSimple(
-                new DoubleSolenoid(
-                    INTAKE_SOLENOID_FORWARD_CHANNEL, INTAKE_SOLENOID_REVERSE_CHANNEL)));
+        new DoubleSolenoid(INTAKE_SOLENOID_FORWARD_CHANNEL, INTAKE_SOLENOID_REVERSE_CHANNEL);
+    //    var intake2 = new Solenoid(INTAKE_SOLENOID_FORWARD_CHANNEL);
     var compressor = new Compressor(0);
     compressor.start();
 
-    var subsystems = List.<Subsystem>of(intake);
+    var subsystems = List.<Subsystem>of();
     var updater = new Updater(List.of(pdp));
 
     var buttons =
@@ -59,20 +58,12 @@ public class IntakeTest {
             // Open intake
             new CommandButton(
                 new SimpleButton(mechanismsJoystick, INTAKE_OPEN_BUTTON),
-                new InstantCommand(
-                    () -> {
-                      System.out.println("Opening intake");
-                      intake.open();
-                    }),
+                new InstantCommand(() -> intake.set(DoubleSolenoid.Value.kForward)),
                 CommandButton.Action.WHEN_PRESSED),
             // Close intake
             new CommandButton(
                 new SimpleButton(mechanismsJoystick, INTAKE_CLOSE_BUTTON),
-                new InstantCommand(
-                    () -> {
-                      System.out.println("Closing intake");
-                      intake.close();
-                    }),
+                new InstantCommand(() -> intake.set(DoubleSolenoid.Value.kReverse)),
                 CommandButton.Action.WHEN_PRESSED));
 
     var defaultCommands = List.<DefaultCommand>of();
