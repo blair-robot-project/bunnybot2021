@@ -110,7 +110,7 @@ public class PositionControlTest {
     //    elevatorPulleyMotor.setPID(0.0003, 0.0000008, 0.0146);
     // PID constants for position controlled elevator motor
 //    elevatorPulleyMotor.setPID(0.2, 0.0008, 0.016);
-      elevatorPulleyMotor.setPID(0.0, 0, 0.0);
+      elevatorPulleyMotor.setPID(0.21, 0.0, 0.00);
     // WE ASSUME THE ELEVATOR STARTS AT THE BOTTOM
     // PLEASE MAKE SURE ELEVATOR IS ACTUALLY AT THE BOTTOM
 
