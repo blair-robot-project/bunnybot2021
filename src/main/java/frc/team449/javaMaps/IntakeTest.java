@@ -2,14 +2,11 @@ package frc.team449.javaMaps;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team449.CommandContainer;
 import frc.team449.RobotMap;
-import frc.team449._2020.multiSubsystem.SolenoidSimple;
-import frc.team449._2021BunnyBot.intake.OnePistonIntake;
 import frc.team449.components.RunningLinRegComponent;
 import frc.team449.jacksonWrappers.MappedJoystick;
 import frc.team449.jacksonWrappers.PDP;
@@ -29,7 +26,7 @@ public class IntakeTest {
   private static final int MECHANISMS_JOYSTICK_PORT = 0;
 
   // Mechs button numbers
-  private static final int INTAKE_CLOSE_BUTTON = 1, INTAKE_OPEN_BUTTON = 2;
+  private static final int INTAKE_OPEN_BUTTON = 1, INTAKE_CLOSE_BUTTON = 2;
 
   private static final boolean USE_CAMERA_SERVER = false;
 
@@ -55,14 +52,14 @@ public class IntakeTest {
 
     var buttons =
         List.of(
-            // Open intake
-            new CommandButton(
-                new SimpleButton(mechanismsJoystick, INTAKE_OPEN_BUTTON),
-                new InstantCommand(() -> intake.set(DoubleSolenoid.Value.kForward)),
-                CommandButton.Action.WHEN_PRESSED),
             // Close intake
             new CommandButton(
                 new SimpleButton(mechanismsJoystick, INTAKE_CLOSE_BUTTON),
+                new InstantCommand(() -> intake.set(DoubleSolenoid.Value.kForward)),
+                CommandButton.Action.WHEN_PRESSED),
+            // Open intake
+            new CommandButton(
+                new SimpleButton(mechanismsJoystick, INTAKE_OPEN_BUTTON),
                 new InstantCommand(() -> intake.set(DoubleSolenoid.Value.kReverse)),
                 CommandButton.Action.WHEN_PRESSED));
 
