@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team449.CommandContainer;
 import frc.team449.RobotMap;
@@ -17,14 +16,12 @@ import frc.team449.generalInterfaces.SmartMotor;
 import frc.team449.generalInterfaces.doubleUnaryOperator.Polynomial;
 import frc.team449.generalInterfaces.doubleUnaryOperator.RampComponent;
 import frc.team449.generalInterfaces.shiftable.Shiftable;
-import frc.team449.generalInterfaces.shiftable.commands.ShiftGears;
 import frc.team449.jacksonWrappers.*;
 import frc.team449.jacksonWrappers.FeedForwardCalculators.MappedFeedForwardCalculator;
 import frc.team449.javaMaps.builders.PerGearSettingsBuilder;
 import frc.team449.javaMaps.builders.SmartMotorConfig;
 import frc.team449.javaMaps.builders.ThrottlePolynomialBuilder;
 import frc.team449.oi.buttons.CommandButton;
-import frc.team449.oi.buttons.SimpleButton;
 import frc.team449.oi.throttles.Throttle;
 import frc.team449.oi.throttles.ThrottleSum;
 import frc.team449.oi.unidirectional.arcade.OIArcadeWithDPad;
@@ -206,12 +203,12 @@ public class DriveTest {
 
     var buttons =
         List.<CommandButton>of(
-//            // toggle shift gears
-//            new CommandButton(
-//                new SimpleButton(driveJoystick, SHIFT_TOGGLE_BUTTON),
-//                new ShiftGears(drive),
-//                CommandButton.Action.WHEN_PRESSED)
-                );
+            //            // toggle shift gears
+            //            new CommandButton(
+            //                new SimpleButton(driveJoystick, SHIFT_TOGGLE_BUTTON),
+            //                new ShiftGears(drive),
+            //                CommandButton.Action.WHEN_PRESSED)
+            );
 
     var robotStartupCommands = List.<Command>of();
     var autoStartupCommands = List.<Command>of();

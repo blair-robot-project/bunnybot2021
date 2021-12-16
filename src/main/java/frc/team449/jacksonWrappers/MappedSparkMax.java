@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.revrobotics.*;
-import frc.team449.generalInterfaces.MotorContainer;
 import frc.team449.generalInterfaces.SmartMotor;
 import frc.team449.jacksonWrappers.simulated.MPSSmartMotorSimulated;
 import frc.team449.javaMaps.builders.SmartMotorConfig;
