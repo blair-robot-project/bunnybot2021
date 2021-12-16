@@ -55,7 +55,8 @@ public class OneMotorPulleyElevator extends SubsystemBase {
    * @param kDt the time since the profile started
    */
   public void moveToPosition(@NotNull ElevatorPosition pos, double kDt) {
-    var distance = Math.max(Math.min(pos.distanceFromBottom, ElevatorPosition.TOP.distanceFromBottom), 0);
+    var distance =
+        Math.max(Math.min(pos.distanceFromBottom, ElevatorPosition.TOP.distanceFromBottom), 0);
     goal = new TrapezoidProfile.State(distance, 0);
     setpoint = calculateNextPosition(kDt);
     pulleyMotor.setPositionSetpoint(setpoint.position);
