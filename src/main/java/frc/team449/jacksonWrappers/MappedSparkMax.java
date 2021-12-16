@@ -37,7 +37,6 @@ public class MappedSparkMax extends MappedSparkMaxBase implements SmartMotor {
     this.canEncoder = this.spark.getEncoder();
     this.pidController = this.spark.getPIDController();
     this.resetPosition();
-    MotorContainer.register(this);
   }
 
   /**
