@@ -46,13 +46,7 @@ public class PositionControlTest {
     // TODO Declare these constants outside this method and remove unused variables
 
     // Motor ports
-    int leftMasterPort = 1,
-        leftMasterSlave1Port = 3,
-        leftMasterSlave2Port = 5,
-        rightMasterPort = 2,
-        rightMasterSlave1Port = 4,
-        rightMasterSlave2Port = 6,
-        elevatorMotorPort = 1;
+    int elevatorMotorPort = 5;
 
     // Solenoid ports
     int intakeSolenoidForward = 2, intakeSolenoidReverse = 3;
@@ -109,7 +103,7 @@ public class PositionControlTest {
     //    elevatorPulleyMotor.setPID(0.0003, 0.0000008, 0.0146);
     // PID constants for position controlled elevator motor
     //    elevatorPulleyMotor.setPID(0.2, 0.0008, 0.016);
-    elevatorPulleyMotor.setPID(0.21, 0.0, 0.00);
+    elevatorPulleyMotor.setPID(0.0, 0.0, 0.0);
     // WE ASSUME THE ELEVATOR STARTS AT THE BOTTOM
     // PLEASE MAKE SURE ELEVATOR IS ACTUALLY AT THE BOTTOM
 
@@ -117,9 +111,9 @@ public class PositionControlTest {
         new OneMotorPulleyElevator(
             elevatorPulleyMotor,
             ElevatorPosition.BOTTOM,
-            new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
+            new ElevatorFeedforward(0.11311, 0.15109, 3.8541, 0.30047), // TODO do characterization
             new TrapezoidProfile.Constraints(
-                elevatorMaxVelocity, 0.3)); // TODO [IMPORTANT] These values are placeholders
+                elevatorMaxVelocity, 0.1)); // TODO [IMPORTANT] These values are placeholders
     var setVelocityCommand = new SetVelocity(elevator, mechanismsJoystick, elevatorMaxVelocity);
 
     // intake
@@ -128,51 +122,6 @@ public class PositionControlTest {
                         new SolenoidSimple(new DoubleSolenoid(intakeSolenoidForward, intakeSolenoidReverse)));
     */
     var subsystems = List.<Subsystem>of(elevator);
-
-    //        var throttlePrototype =
-    //                new
-    // ThrottlePolynomialBuilder().stick(driveJoystick).smoothingTimeSecs(0.04).scale(0.7);
-    //        var rotThrottle =
-    //                throttlePrototype
-    //                        .axis(0)
-    //                        .deadband(0.08)
-    //                        .inverted(false)
-    //                        .polynomial(new Polynomial(Map.of(1., 0.5), null))
-    //                        .build();
-    //        var fwdThrottle =
-    //                new ThrottleSum(
-    //                        new Throttle[] {
-    //                                throttlePrototype
-    //                                        .axis(3)
-    //                                        .deadband(0.05)
-    //                                        .inverted(false)
-    //                                        .polynomial(
-    //                                                new Polynomial(
-    //                                                        Map.of(
-    //                                                                1., 2.,
-    //                                                                2., 1.),
-    //                                                        null))
-    //                                        .build(),
-    //                                throttlePrototype.axis(2).inverted(true).build()
-    //                        });
-    //        var oi =
-    //                new OIArcadeWithDPad(
-    //                        rotThrottle,
-    //                        fwdThrottle,
-    //                        0.1,
-    //                        false,
-    //                        driveJoystick,
-    //                        new Polynomial(
-    //                                Map.of(
-    //                                        0.5, 0.4,
-    //                                        0., 0.2),
-    //                                null),
-    //                        1.0,
-    //                        true);
-    ////
-    //        var intakeSolenoid =
-    //                new SolenoidSimple(new DoubleSolenoid(intakeSolenoidForward,
-    // intakeSolenoidReverse));
 
     var updater = new Updater(List.of(pdp /*, oi, navx*/));
 

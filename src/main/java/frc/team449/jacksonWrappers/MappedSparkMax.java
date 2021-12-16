@@ -164,6 +164,7 @@ public class MappedSparkMax extends MappedSparkMaxBase implements SmartMotor {
   }
 
   @Override
+  @Log
   public double getPositionUnits() {
     return encoderToUnit(canEncoder.getPosition());
   }

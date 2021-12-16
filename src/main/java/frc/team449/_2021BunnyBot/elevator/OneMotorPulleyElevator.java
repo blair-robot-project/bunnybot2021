@@ -55,7 +55,8 @@ public class OneMotorPulleyElevator extends SubsystemBase {
    * @param kDt the time since the profile started
    */
   public void moveToPosition(@NotNull ElevatorPosition pos, double kDt) {
-    goal = new TrapezoidProfile.State(pos.distanceFromBottom, 0);
+    var distance = Math.max(Math.min(pos.distanceFromBottom, ElevatorPosition.TOP.distanceFromBottom), 0);
+    goal = new TrapezoidProfile.State(distance, 0);
     setpoint = calculateNextPosition(kDt);
     pulleyMotor.setPositionSetpoint(setpoint.position);
   }
@@ -74,9 +75,9 @@ public class OneMotorPulleyElevator extends SubsystemBase {
   public enum ElevatorPosition {
     // preset positions (RPS)
     // Each crate is 11 inches high (0.2794 meters)
-    TOP(0.8382 * 10),
-    UPPER(0.5588 * 10),
-    LOWER(0.2794 * 10),
+    TOP(0.8382),
+    UPPER(0.5588),
+    LOWER(0.2794),
     BOTTOM(0.0);
 
     /** The distance of this position from the bottom in meters */
