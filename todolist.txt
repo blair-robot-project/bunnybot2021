@@ -42,5 +42,10 @@ Non-important TODOs:
 ./src/main/java/frc/team449/javaMaps/DriveTest.java: 194: 0, // TODO tune pid
 ./src/main/java/frc/team449/javaMaps/IntakeTest.java: 22: // todo check these channels
 ./src/main/java/frc/team449/javaMaps/IntakeTest.java: 41: // todo make a DoubleSolenoidSubsystem class in jacksonWrappers or someplace else instead of the
+./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 43: // TODO Declare these constants outside this method and remove unused variables
+./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 64: driverIntakeOff = 2, // TODO This is never used
+./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 65: driverIntakeRev = 3, // TODO This is never used
+./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 66: driverIntakeInOff = 4, // TODO This is never used
+./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 77: double elevatorMaxVelocity = 5; // TODO this is a placeholder
 ./src/main/java/frc/team449/oi/unidirectional/arcade/OIArcade.java: 93: : (leftRightOutputCached = getLeftRightOutput()); // TODO assignment inside expression?
 ./src/main/java/frc/team449/oi/unidirectional/arcade/OIArcade.java: 106: : (fwdRotOutputCached = getFwdRotOutput()); // TODO assignment inside expression?
