@@ -28,26 +28,20 @@ Non-important TODOs:
 ./src/main/java/frc/team449/components/ShiftWithSensorComponent.java: 116: // TODO set up a lock system so no other part of the code can re-enable the motors.
 ./src/main/java/frc/team449/components/TrajectoryGenerationComponent.java: 6: /** TODO add some actual javadocs here */
 ./src/main/java/frc/team449/generalInterfaces/AHRS/commands/PIDAngleCommand.java: 21: extends CommandBase { // implements Loggable { TODO Logging causes the drive subsystem to be
-./src/main/java/frc/team449/jacksonWrappers/MappedSparkMaxBase.java: 291: // todo declared janky
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 58: private static final double ELEVATOR_MAX_VELOCITY = 2; // TODO this is a placeholder
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 120: 0.102, 5.66, 0.306)) // TODO characterize
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 125: 0.156, 2.01, 0.154)) // TODO characterize
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 147: 0.102, 5.66, 0.306)) // TODO characterize
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 152: 0.165, 2.01, 0.155)) // TODO characterize
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 161: 0.61755, // TODO measure the distance from one side of the drive to the other
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 167: // TODO setup elevator, with Meters
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 188: elevatorPulleyMotor.setPID(0, 0, 0); // TODO tune pid
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 196: new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
-./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 258: 0, // TODO tune pid
-./src/main/java/frc/team449/javaMaps/DriveTest.java: 105: 0.165, 2.01, 0.155)) // TODO characterize
-./src/main/java/frc/team449/javaMaps/DriveTest.java: 126: 0.156, 2.01, 0.154)) // TODO characterize
-./src/main/java/frc/team449/javaMaps/DriveTest.java: 194: 0, // TODO tune pid
-./src/main/java/frc/team449/javaMaps/ElevatorUnitsTest.java: 33: // TODO Declare these constants outside this method and remove unused variables
-./src/main/java/frc/team449/javaMaps/ElevatorUnitsTest.java: 48: driverIntakeOff = 2, // TODO This is never used
-./src/main/java/frc/team449/javaMaps/ElevatorUnitsTest.java: 49: driverIntakeRev = 3, // TODO This is never used
-./src/main/java/frc/team449/javaMaps/ElevatorUnitsTest.java: 50: driverIntakeInOff = 4, // TODO This is never used
-./src/main/java/frc/team449/javaMaps/ElevatorUnitsTest.java: 61: double elevatorMaxVelocity = .02, elevatorMaxAccel = 0.07; // TODO this is a placeholder
-./src/main/java/frc/team449/javaMaps/ElevatorUnitsTest.java: 103: new ElevatorFeedforward(0.11311, 0.15109, 3.8541, 0.30047), // TODO do characterization
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 59: private static final double ELEVATOR_MAX_VELOCITY = 2; // TODO this is a placeholder
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 121: 0.102, 5.66, 0.306)) // TODO characterize
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 126: 0.156, 2.01, 0.154)) // TODO characterize
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 148: 0.102, 5.66, 0.306)) // TODO characterize
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 153: 0.165, 2.01, 0.155)) // TODO characterize
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 162: 0.61755, // TODO measure the distance from one side of the drive to the other
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 168: // TODO setup elevator, with Meters
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 189: elevatorPulleyMotor.setPID(0, 0, 0); // TODO tune pid
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 197: new ElevatorFeedforward(0.0, 0.0, 0.0, 0.0), // TODO do characterization
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 199: 0.0, 0.0, 0.0, new TrapezoidProfile.Constraints())); // TODO PID tuning
+./src/main/java/frc/team449/javaMaps/Bunnybot2021Map.java: 259: 0, // TODO tune pid
+./src/main/java/frc/team449/javaMaps/DriveTest.java: 103: 0.165, 2.01, 0.155)) // TODO characterize
+./src/main/java/frc/team449/javaMaps/DriveTest.java: 124: 0.156, 2.01, 0.154)) // TODO characterize
+./src/main/java/frc/team449/javaMaps/DriveTest.java: 192: 0, // TODO tune pid
 ./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 46: // TODO Declare these constants outside this method and remove unused variables
 ./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 61: driverIntakeOff = 2, // TODO This is never used
 ./src/main/java/frc/team449/javaMaps/PositionControlTest.java: 62: driverIntakeRev = 3, // TODO This is never used
