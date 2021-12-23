@@ -115,6 +115,7 @@ public class PositionControlTest {
             new ElevatorFeedforward(0.11311, 0.15109, 3.8541, 0.30047), // TODO do characterization
             new TrapezoidProfile.Constraints(
                 elevatorMaxVelocity, 0.1)); // TODO [IMPORTANT] These values are placeholders
+
     var setVelocityCommand = new SetVelocity(elevator, mechanismsJoystick, elevatorMaxVelocity);
 
     // intake

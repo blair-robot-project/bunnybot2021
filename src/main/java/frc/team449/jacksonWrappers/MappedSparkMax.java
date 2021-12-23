@@ -38,6 +38,32 @@ public class MappedSparkMax extends MappedSparkMaxBase implements SmartMotor {
     this.canEncoder = this.spark.getEncoder();
     this.pidController = this.spark.getPIDController();
     this.resetPosition();
+    MotorContainer.register(this);
+  }
+
+  /**
+   * Tries to create a MappedSparkMax, but if there's a HAL error, it creates a {@link
+   * frc.team449.jacksonWrappers.simulated.MPSSmartMotorSimulated} instead
+   *
+   * @see MappedSparkMax#MappedSparkMax(Integer, Map, SmartMotorConfig)
+   */
+  public static SmartMotor create(
+      @Nullable final Integer controlFrameRateMillis,
+      @Nullable final Map<CANSparkMax.PeriodicFrame, Integer> statusFrameRatesMillis,
+      @NotNull final SmartMotorConfig cfg) {
+    try (final var spark =
+        new CANSparkMax(cfg.getPort(), CANSparkMaxLowLevel.MotorType.kBrushless)) {
+      spark.restoreFactoryDefaults();
+      if (spark.getLastError() == CANError.kHALError) {
+        System.out.println(
+            "HAL error for spark on port "
+                + cfg.getPort()
+                + "; assuming nonexistent and replacing with simulated controller");
+        return new MPSSmartMotorSimulated(cfg);
+      } else {
+        return new MappedSparkMax(controlFrameRateMillis, statusFrameRatesMillis, cfg);
+      }
+    }
   }
 
   /**
@@ -150,6 +176,7 @@ public class MappedSparkMax extends MappedSparkMaxBase implements SmartMotor {
     this.currentControlMode = ControlType.kVelocity;
     double nativeSetpoint = upsToEncoder(velocity);
     this.setpoint = velocity;
+    System.out.println("Native: " + nativeSetpoint + ", orig vel: " + velocity);
     this.pidController.setFF(0);
     this.pidController.setReference(
         nativeSetpoint,

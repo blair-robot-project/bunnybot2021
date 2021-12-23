@@ -153,6 +153,11 @@ public class SlaveTalon implements SlaveMotor, Loggable {
   //        };
   //    }
 
+  @Override
+  public String configureLogName() {
+    return "slavetalon_" + this.port;
+  }
+
   @Log
   public double getOutputCurrent() {
     return this.talonSRX.getSupplyCurrent();
