@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.revrobotics.*;
+import frc.team449.generalInterfaces.MotorContainer;
 import frc.team449.generalInterfaces.SmartMotor;
 import frc.team449.jacksonWrappers.simulated.MPSSmartMotorSimulated;
 import frc.team449.javaMaps.builders.SmartMotorConfig;
@@ -50,31 +51,6 @@ public class MappedSparkMax extends MappedSparkMaxBase implements SmartMotor {
   public static SmartMotor create(
       @Nullable final Integer controlFrameRateMillis,
       @Nullable final Map<CANSparkMax.PeriodicFrame, Integer> statusFrameRatesMillis,
-      @NotNull final SmartMotorConfig cfg) {
-    try (final var spark =
-        new CANSparkMax(cfg.getPort(), CANSparkMaxLowLevel.MotorType.kBrushless)) {
-      spark.restoreFactoryDefaults();
-      if (spark.getLastError() == CANError.kHALError) {
-        System.out.println(
-            "HAL error for spark on port "
-                + cfg.getPort()
-                + "; assuming nonexistent and replacing with simulated controller");
-        return new MPSSmartMotorSimulated(cfg);
-      } else {
-        return new MappedSparkMax(controlFrameRateMillis, statusFrameRatesMillis, cfg);
-      }
-    }
-  }
-
-  /**
-   * Tries to create a MappedSparkMax, but if there's a HAL error, it creates a {@link
-   * frc.team449.jacksonWrappers.simulated.MPSSmartMotorSimulated} instead
-   *
-   * @see MappedSparkMax#MappedSparkMax(Integer, Map, SmartMotorConfig)
-   */
-  public static SmartMotor create(
-      @Nullable final Integer controlFrameRateMillis,
-      @Nullable final Map<CANSparkMaxLowLevel.PeriodicFrame, Integer> statusFrameRatesMillis,
       @NotNull final SmartMotorConfig cfg) {
     try (final var spark =
         new CANSparkMax(cfg.getPort(), CANSparkMaxLowLevel.MotorType.kBrushless)) {
